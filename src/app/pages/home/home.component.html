@@ -1,0 +1,72 @@
+<p>home works!</p>
+
+<div style="margin-top: 60em;">
+
+  @for (filme of filmes; track $index) {
+    <h3 #category> {{ filme }} aqui</h3>
+    @defer (on  viewport(category)) {
+      <filme  [categoria]="filme" ></filme>
+    }
+    @placeholder {
+      <span>Carregando...</span>
+    }
+  }
+
+
+</div>
+
+
+<input app-input>
+
+<h4>Chegando</h4>
+
+<h3>time</h3>
+@defer (on timer(10000)) {
+  <filme  [categoria]="'Time'" ></filme>
+}
+@placeholder {
+  <span>Carregando...</span>
+}
+
+
+ <button type="button" (click)="changeCondigition()" style="width: 6em; background-color: aquamarine;"> button</button>
+<h3>Condição</h3>
+@defer (when condition) {
+  <filme  [categoria]="'Filme'" ></filme>
+}
+@placeholder {
+  <span>Carregando...</span>
+}
+
+
+
+<h3 #marcador style="margin-top: 30em; margin-bottom: 15em;">Teste Lazy component</h3>
+
+@defer (on viewport) {
+  <filme  [categoria]="'Velozes e Furisos'" ></filme>
+}
+@placeholder {
+  <span>Carregando...</span>
+}
+
+@defer (on hover(marcador)) {
+  <filme  [categoria]="'It a coisa'" ></filme>
+}
+@placeholder {
+  <span>Carregando...</span>
+}
+
+@defer (on viewport(marcador)) {
+  <filme  [categoria]="'It a coisa'" ></filme>
+}
+@placeholder {
+  <span>Carregando...</span>
+}
+<h3>Idle</h3>
+@defer (on idle) {
+  <filme  [categoria]="'Inatividade'" ></filme>
+}
+@placeholder {
+  <span>Carregando...</span>
+}
+

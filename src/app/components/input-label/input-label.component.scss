@@ -1,0 +1,48 @@
+// input {
+//   border-radius:  15px;
+//   background: white;
+// }
+
+$input-border-color: #ccc; // Cor da borda padrão
+$input-focus-border-color: #ff5f39; // Cor da borda quando em foco
+$input-label-color: #999; // Cor do rótulo inicial
+$input-label-focus-color: #ff5f39; // Cor do rótulo quando em foco
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px; // Espaço abaixo do input para acomodar o label
+
+
+  .input-label {
+    position: absolute;
+    left: 0.5em;
+    top: 20px;
+    color: green; // Cor do rótulo inicial
+    transition: top 0.3s, font-size 0.3s, color 0.3s; // Transições suaves para top, font-size e cor
+
+    &.floating {
+      top: 5px; // Move o rótulo para cima quando o input está em foco
+      font-size: 12px; // Tamanho da fonte menor quando o input está em foco
+      color: $input-label-focus-color; // Cor do rótulo quando o input está em foco
+    }
+  }
+  &:focus + .input-label{
+    left: 0.5em;
+    top: 0;
+  }
+
+  .input-field {
+    width: 10em;
+    padding: 1.3em 0em 0em 0em;
+    font-size: 16px;
+    border: 1px solid $input-border-color; // Cor da borda padrão
+    border-radius: 5px;
+    transition: border-color 0.3s; // Transição suave para a cor da borda
+
+    &:focus {
+      outline: none; // Remove a borda de foco padrão
+      border-color: red; // Cor da borda quando em foco
+    }
+
+  }
+}
